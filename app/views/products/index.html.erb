@@ -82,30 +82,32 @@
 <div id="main_content_alt">
   <div class="container">
     <div class="posts-wrap">
-      <div class="post post-index">
-        <div class="entry-content entry-content-index">
-          <h2 class="entry-title index-entry-title"><a href="single.html" title="Single Post">Post Title Here</a>
-          </h2>
-          <div class="additional-meta">
-            <span>Posted in <a href="archive.html" title="View all posts in Giveaways" rel="category tag">Giveaways</a> by <a href="archive.html" title="Posts by Jake Caputo" rel="author">Jake Caputo</a> - Jun 02, 2011
-            </span>
-            <div class="additional-meta_comments">
-              <a href="#" class="comments-link" title="Comment on Post Title Here">5 Comments</a>
+      <% @products.each do |product| %>
+        <div class="post post-index">
+          <div class="entry-content entry-content-index">
+            <h2 class="entry-title index-entry-title"><a href="single.html" title="Single Post"><%= product.title %></a>
+            </h2>
+            <div class="additional-meta">
+              <span>Posted in <a href="archive.html" title="View all posts in Giveaways" rel="category tag">Giveaways</a> by <a href="archive.html" title="Posts by Jake Caputo" rel="author">Jake Caputo</a> - Jun 02, 2011
+              </span>
+              <div class="additional-meta_comments">
+                <a href="#" class="comments-link" title="Comment on Post Title Here">5 Comments</a>
+              </div>
             </div>
-          </div>
-          <div class="poster">
-            <a href="single.html" title="Post Title Here" class="poster_link">
-              <%= image_tag "demo_poster.png", size: "198×294", class: "alignleft post-image-border", alt: "Post Title Here" %>
-            </a>
-          </div>
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi commodo, ipsum sed pharetra gravida, orci magna rhoncus neque, id pulvinar odio lorem non turpis. Nullam sit amet enim. Suspendisse id velit vitae ligula volutpat condimentum. Aliquam erat volutpat. Sed quis velit.
-          </p>
-          <p>Nulla facilisi. Nulla libero. Vivamus pharetra posuere sapien. Nam consectetuer. Sed aliquam, nunc eget euismod ullamcorper, lectus nunc ullamcorper orci, fermentum bibendum enim nibh eget ipsum. Donec porttitor ligula eu dolor. Maecenas vitae nulla consequat libero cursus venenatis. Nam magna enim, accumsan eu, blandit sed, blandit a, eros.
-          </p>
-          <p>Quisque facilisis erat a dui. Nam malesuada ornare dolor. Cras gravida, diam sit &#8230;</p><a href="single.html" title="Post Title Here" class="more-link left">Read More</a>
-          <div class="clear"></div>
-        </div><!-- end .entry-content -->
-      </div><!-- end .post -->
+            <div class="poster">
+              <a href="single.html" title="Post Title Here" class="poster_link">
+                <%= image_tag "#{product.image_url}", class: "alignleft post-image-border post-image", alt: "Post Title Here" %>
+              </a>
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi commodo, ipsum sed pharetra gravida, orci magna rhoncus neque, id pulvinar odio lorem non turpis. Nullam sit amet enim. Suspendisse id velit vitae ligula volutpat condimentum. Aliquam erat volutpat. Sed quis velit.
+            </p>
+            <p>Nulla facilisi. Nulla libero. Vivamus pharetra posuere sapien. Nam consectetuer. Sed aliquam, nunc eget euismod ullamcorper, lectus nunc ullamcorper orci, fermentum bibendum enim nibh eget ipsum. Donec porttitor ligula eu dolor. Maecenas vitae nulla consequat libero cursus venenatis. Nam magna enim, accumsan eu, blandit sed, blandit a, eros.
+            </p>
+            <p>Quisque facilisis erat a dui. Nam malesuada ornare dolor. Cras gravida, diam sit &#8230;</p><a href="single.html" title="Post Title Here" class="more-link left">Read More</a>
+            <div class="clear"></div>
+          </div><!-- end .entry-content -->
+        </div><!-- end .post -->
+      <% end %>
       <div class="navigation">
         <div class="next_prev left"><a href="#" title="Previous">&laquo; Previous</a></div>
         <div class="next_prev right"><a href="#" title="Next">Next &raquo;</a></div>
@@ -113,66 +115,65 @@
       </div>
     </div><!-- end .posts-wrap -->
 <!-- Begin Sidebar -->
-<div id="sidebar">
-  <div class="widget">
-    <h3 class="widgettitle">Our Take On Things</h3>
-    <div class="textwidget">
-      With Reviewer, you can get your thoughts on today's hottest movies and TV shows out in front of a hungry audience.
+    <div id="sidebar">
+      <div class="widget">
+        <h3 class="widgettitle">Our Take On Things</h3>
+        <div class="textwidget">
+          With Reviewer, you can get your thoughts on today's hottest movies and TV shows out in front of a hungry audience.
+        </div>
+      </div>
+      <div class="widget_divide"></div>
+      <div class="widget">
+        <h3 class="widgettitle">Recent Reviews</h3>
+        <ul id="recent_reviews">
+          <li>
+            <div class="recent_line star_5">
+              <a href="single.html" title="Post Title">Post Title</a>
+              <em>5 Stars</em>
+            </div>
+          </li>
+          <li>
+            <div class="recent_line star_45">
+              <a href="single.html" title="Post Title">Post Title</a>
+              <em>4 &frac12; Stars</em>
+            </div>
+          </li>
+          <li>
+            <div class="recent_line star_5">
+              <a href="single.html" title="Post Title">Post Title</a>
+              <em>5 Stars</em>
+            </div>
+          </li>
+          <li>
+            <div class="recent_line star_1">
+              <a href="single.html" title="Post Title">Post Title</a>
+              <em>1 Star</em>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="widget_divide"></div>
+      <div class="widget">
+        <div class="widget_half left">
+          <h3 class="widgettitle">Categories</h3>
+          <ul>
+            <li><a href="archive.html" title="View all posts filed under Blog">Blog</a></li>
+            <li><a href="archive.html" title="View all posts filed under Giveaways">Giveaways</a></li>
+            <li><a href="archive.html" title="View all posts filed under Reviews">Reviews</a></li>
+          </ul>
+        </div>
+        <div class="widget_half right">
+          <h3 class="widgettitle">Archives</h3>
+          <ul>
+            <li><a href="archive.html" title="June 2011">June 2011</a></li>
+            <li><a href="archive.html" title="May 2011">May 2011</a></li>
+            <li><a href="archive.html" title="April 2011">April 2011</a></li>
+          </ul>
+        </div>
+        <div class="clear"></div>
+      </div>
     </div>
-  </div>
-  <div class="widget_divide"></div>
-  <div class="widget">
-    <h3 class="widgettitle">Recent Reviews</h3>
-    <ul id="recent_reviews">
-      <li>
-        <div class="recent_line star_5">
-          <a href="single.html" title="Post Title">Post Title</a>
-          <em>5 Stars</em>
-        </div>
-      </li>
-      <li>
-        <div class="recent_line star_45">
-          <a href="single.html" title="Post Title">Post Title</a>
-          <em>4 &frac12; Stars</em>
-        </div>
-      </li>
-      <li>
-        <div class="recent_line star_5">
-          <a href="single.html" title="Post Title">Post Title</a>
-          <em>5 Stars</em>
-        </div>
-      </li>
-      <li>
-        <div class="recent_line star_1">
-          <a href="single.html" title="Post Title">Post Title</a>
-          <em>1 Star</em>
-        </div>
-      </li>
-    </ul>
-  </div>
-  <div class="widget_divide"></div>
-  <div class="widget">
-    <div class="widget_half left">
-      <h3 class="widgettitle">Categories</h3>
-      <ul>
-        <li><a href="archive.html" title="View all posts filed under Blog">Blog</a></li>
-        <li><a href="archive.html" title="View all posts filed under Giveaways">Giveaways</a></li>
-        <li><a href="archive.html" title="View all posts filed under Reviews">Reviews</a></li>
-      </ul>
-    </div>
-    <div class="widget_half right">
-      <h3 class="widgettitle">Archives</h3>
-      <ul>
-        <li><a href="archive.html" title="June 2011">June 2011</a></li>
-        <li><a href="archive.html" title="May 2011">May 2011</a></li>
-        <li><a href="archive.html" title="April 2011">April 2011</a></li>
-      </ul>
-    </div>
-    <div class="clear"></div>
-  </div>
-</div>
-<!-- End Sidebar -->
-
+    <!-- End Sidebar -->
     <div class="clear"></div>
   </div><!-- end div.container -->
 </div><!-- end div#main_content -->
