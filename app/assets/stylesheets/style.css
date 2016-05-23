@@ -1272,3 +1272,8 @@ div.navigation {
   border:1px solid #CB3434;
   background:#F8B0B0;
 }
+
+.post-image{
+  width: 198px;
+  height: 294px;
+}
