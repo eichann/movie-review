@@ -1,0 +1,223 @@
+
+    <div id="wrapper">
+      <div id="header">
+        <div id="pagemenu" class="menu">
+          <div class="container">
+            <div class="menu-pages-container">
+              <ul id="menu-pages" class="menu">
+                <li><a href="page.html" title="About">About</a></li>
+                <li>
+                  <a href="#" title="Drop Down">Drop Down +</a>
+                  <ul class="sub-menu">
+                    <li><a href="#" title="Item 1">Item 1</a></li>
+                    <li>
+                      <a href="#" title="Item 2">Item 2 +</a>
+                      <ul class="sub-menu">
+                        <li><a href="#" title="Item 2 Child">Item 2 Child</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li><a href="page.html" title="Kitchen Sink">Kitchen Sink</a></li>
+                <li><a href="page-full.html" title="Full Width">Full Width</a></li>
+                <li><a href="page-authors.html" title="Authors Page">Authors Page</a></li>
+                <li><a href="page-contact.html" title="Contact Us">Contact Us</a></li>
+              </ul>
+            </div>
+            <div id="socnets">
+              <a href="#" title="Twitter"><%= image_tag 'socnets/twitter.png' %></a>
+              <a href="#" title="Facebook"><%= image_tag 'socnets/facebook.png' %></a>
+              <a href="#" title="Flickr"><%= image_tag 'socnets/flickr.png' %></a>
+              <a href="#" title="Forrst"><%= image_tag 'socnets/forrst.png' %></a>
+              <a href="#" title="Dribbble"><%= image_tag 'socnets/dribbble.png' %></a>
+              <a href="#" title="Tumblr"><%= image_tag 'socnets/tumblr.png' %></a>
+              <a href="#" title="Vimeo"><%= image_tag 'socnets/vimeo.png' %></a>
+              <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+        <div id="logo_area">
+          <div class="container">
+            <a href="/" title="Reviewer" class="left">
+            <%= image_tag "logo.png", alt: "Reviewer", id: "logo" %></a>
+          </div>
+        </div>
+        <div class="menu" id="category_menu">
+          <div class="container">
+            <div class="menu-categories-container">
+              <ul id="menu-categories" class="menu">
+                <li><a href="archive.html" title="Archive">Reviews</a></li>
+                <li><a href="archive.html" title="Archive">Blog</a></li>
+                <li><a href="archive.html" title="Archive">Giveaways</a></li>
+                <li>
+                  <a href="#">Genres Drop Down +</a>
+                  <ul class="sub-menu">
+                    <li><a href="archive.html" title="Archive">Adventure</a></li>
+                    <li><a href="archive.html" title="Archive">Comedy</a></li>
+                    <li><a href="archive.html" title="Archive">Drama</a></li>
+                    <li>
+                      <a href="archive.html" title="Archive">Action +</a>
+                      <ul class="sub-menu">
+                        <li><a href="archive.html" title="Archive">Comic Books</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="archive.html" title="Archive">Sci-Fi</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <form method="get" id="searchform" action="">
+              <div>
+                <input type="text" class="search_input" value="To search, type and hit enter" name="s" id="s" onfocus="if (this.value == 'To search, type and hit enter') {this.value = '';}" onblur="if (this.value == '') {this.value = 'To search, type and hit enter';}" />
+                <input type="hidden" id="searchsubmit" value="Search" />
+              </div>
+            </form>
+            <div class="clear"></div>
+          </div>
+        </div>
+      </div><!-- end #header -->
+<!-- End Header -->
+
+<div id="main_content_alt">
+  <div class="container">
+    <div class="posts-wrap">
+      <% @products.each do |product| %>
+        <div class="post post-index">
+          <div class="entry-content entry-content-index">
+            <h2 class="entry-title index-entry-title"><a href="/products/<%= product.id %>" title="Single Post"><%= product.title %></a>
+            </h2>
+            <div class="additional-meta">
+              <span>Posted in <a href="archive.html" title="View all posts in Giveaways" rel="category tag">Giveaways</a> by <a href="archive.html" title="Posts by Jake Caputo" rel="author">Jake Caputo</a> - Jun 02, 2011
+              </span>
+              <div class="additional-meta_comments">
+                <a href="#" class="comments-link" title="Comment on Post Title Here">5 Comments</a>
+              </div>
+            </div>
+            <div class="poster">
+              <a href="single.html" title="Post Title Here" class="poster_link">
+                <%= image_tag "#{product.image_url}", class: "alignleft post-image-border post-image", alt: "Post Title Here" %>
+              </a>
+            </div>
+            <%= product.detail.truncate(120) %>
+            <a href="/products/<%= product.id %>" title="Post Title Here" class="more-link left">Read More</a>
+            <div class="clear"></div>
+          </div><!-- end .entry-content -->
+        </div><!-- end .post -->
+      <% end %>
+      <div class="navigation">
+        <%= paginate(@products) %>
+      </div>
+    </div><!-- end .posts-wrap -->
+<!-- Begin Sidebar -->
+    <div id="sidebar">
+      <div class="widget">
+        <h3 class="widgettitle">Our Take On Things</h3>
+        <div class="textwidget">
+          With Reviewer, you can get your thoughts on today's hottest movies and TV shows out in front of a hungry audience.
+        </div>
+      </div>
+      <div class="widget_divide"></div>
+      <div class="widget">
+        <h3 class="widgettitle">Recent Reviews</h3>
+        <ul id="recent_reviews">
+          <li>
+            <div class="recent_line star_5">
+              <a href="single.html" title="Post Title">Post Title</a>
+              <em>5 Stars</em>
+            </div>
+          </li>
+          <li>
+            <div class="recent_line star_45">
+              <a href="single.html" title="Post Title">Post Title</a>
+              <em>4 &frac12; Stars</em>
+            </div>
+          </li>
+          <li>
+            <div class="recent_line star_5">
+              <a href="single.html" title="Post Title">Post Title</a>
+              <em>5 Stars</em>
+            </div>
+          </li>
+          <li>
+            <div class="recent_line star_1">
+              <a href="single.html" title="Post Title">Post Title</a>
+              <em>1 Star</em>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="widget_divide"></div>
+      <div class="widget">
+        <div class="widget_half left">
+          <h3 class="widgettitle">Categories</h3>
+          <ul>
+            <li><a href="archive.html" title="View all posts filed under Blog">Blog</a></li>
+            <li><a href="archive.html" title="View all posts filed under Giveaways">Giveaways</a></li>
+            <li><a href="archive.html" title="View all posts filed under Reviews">Reviews</a></li>
+          </ul>
+        </div>
+        <div class="widget_half right">
+          <h3 class="widgettitle">Archives</h3>
+          <ul>
+            <li><a href="archive.html" title="June 2011">June 2011</a></li>
+            <li><a href="archive.html" title="May 2011">May 2011</a></li>
+            <li><a href="archive.html" title="April 2011">April 2011</a></li>
+          </ul>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <!-- End Sidebar -->
+    <div class="clear"></div>
+  </div><!-- end div.container -->
+</div><!-- end div#main_content -->
+
+<!-- Begin Footer -->
+      <div id="footer" class="footer_three_wide">
+        <div class="container">
+          <div id="the_footer_menu">
+            <div class="menu-footer-container">
+              <ul id="menu-footer" class="menu">
+                <li><a href="/" title="Home">Home</a></li>
+                <li><a href="page.html" title="Kitchen Sink">Kitchen Sink</a></li>
+                <li><a href="page-full.html" title="Full Width">Full Width</a></li>
+                <li><a href="page-authors.html" title="Authors Page">Authors Page</a></li>
+                <li><a href="page-contact.html" title="Contact Us">Contact Us</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer_widget">
+            <h3 class="widgettitle">Latest Comments</h3>
+            <ul id="recentcomments">
+              <li class="recentcomments"><a href="#" title="Commenter">This Guy</a> on <a href="single.html" title="Post Name">This Post Title Here</a></li>
+              <li class="recentcomments"><a href="#" title="Commenter">That Guy</a> on <a href="single.html" title="Post Name">That Post Title Here</a></li>
+              <li class="recentcomments"><a href="#" title="Commenter">My Name</a> on <a href="single.html" title="Post Name">Another Post Title Here</a></li>
+              <li class="recentcomments"><a href="#" title="Commenter">Jake Caputo</a> on <a href="single.html" title="Post Name">Any Post Title Right Here</a></li>
+            </ul>
+          </div>
+          <div class="footer_widget">
+            <div class="featured_reviewer">
+              <h3 class="widgettitle">Featured Reviewer</h3><!--Now we print out speciifc user informations to screen!-->
+              <div class="specific_user">
+                <a href="archive.html" title="Jake Caputo">
+                  <img alt="Jake Caputo" src="http://0.gravatar.com/avatar/02cdeec360274d7d9f1aa85761f95dc8?s=48&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D48&amp;r=G" class="avatar avatar-48 photo" height="48" width="48" />
+                </a>
+                <h4><a href="archive.html" title="Jake Caputo" class="featured_reviewer_name">Jake Caputo</a>
+                </h4>
+                <p>I'm a web designer and developer currently living just outside of Chicago, IL. I like coffee, comic books, cats, and the TV show Home Improvement.</p>
+                <div class="clear"></div>
+              </div><!--end-->
+            </div>
+          </div>
+          <div class="footer_widget">
+            <h3 class="widgettitle">Other Stuff</h3>
+            <div class="textwidget">
+              <p>&copy; Reviewer HTML Template</p>
+              <p>The Reviewer HTML Template is a custom theme by <a href="http://themeforest.net/user/designcrumbs/portfolio?ref=designcrumbs" title="Jake Caputo">Jake Caputo</a>. With easy to follow instructions, set up is a breeze.</p>
+            </div>
+          </div>
+          <div class="clear"></div>
+        </div>
+      </div>
+    </div><!-- end div#wrapper, begins in header.html -->
